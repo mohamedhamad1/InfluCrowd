@@ -120,7 +120,7 @@ body::before {
     opacity: 1;
     transform: scale(1);
     backdrop-filter: blur(15px);
-    background-color: rgba(0, 0, 0, 0.596);
+    background-color: rgba(0, 0, 0, 0.897);
   }
 }
 
