@@ -1,0 +1,263 @@
+body {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(8, 0, 153, 1) 25%, rgb(1, 57, 189) 50%, rgba(8, 0, 153, 1) 75%, rgba(0, 0, 0, 1) 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('15410.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: 0;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.13);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-link {
+  color: white;
+  transition: 0.3s;
+}
+.nav-link:hover {
+  color: #3865f8;
+}
+section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+footer {
+  background-color: rgba(0,0,0,0.5);
+  padding: 40px 20px;
+  text-align: center;
+}
+.social-icons a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+.social-icons a:hover {
+  color: #386bf8;
+}
+.card-body{
+  color:white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.timeline-wrap {
+  position:relative;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.timeline-wrap::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #3865f8;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item-wrap {
+  padding: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.timeline-item-wrap .content {
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid #3855f8;
+}
+
+.timeline-item-wrap.left {
+  left: 0;
+}
+
+.timeline-item-wrap.right {
+  left: 50%;
+}
+
+.timeline-item-wrap::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: #3865f8;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item-wrap.left::before {
+  right: -10px;
+}
+
+.timeline-item-wrap.right::before {
+  left: -10px;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-item-wrap {
+    width: 100%;
+    left: 0 !important;
+    margin-bottom: 30px;
+  }
+
+  .timeline-wrap::after {
+    left: 20px;
+  }
+
+  .timeline-item-wrap.left::before,
+  .timeline-item-wrap.right::before {
+    left: 10px;
+  }
+}
+
+.testimonials-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.testimonial-item {
+  position: relative;
+  width: 30%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #3865f8;
+  color: white;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: perspective(800px) rotateY(0deg);
+  transition: transform 0.5s ease;
+}
+
+.testimonial-card:hover {
+  transform: perspective(800px) rotateY(15deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.testimonial-text {
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.testimonial-position {
+  font-size: 14px;
+  color: #3865f8;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial-item {
+    width: 100%;
+  }
+
+  .testimonials-wrap {
+    justify-content: center;
+  }
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background-color: #3865f8;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-fluid .display-4 {
+    font-size: 2.2rem;
+  }
+
+  .about-fluid .fs-4 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+.navbar-logo {
+  height: 60px; /* تحديد ارتفاع ثابت للصورة */
+  width: auto;  /* العرض يتم ضبطه تلقائيا لتناسب الارتفاع */
+  object-fit: contain; /* لضمان أن الصورة تحافظ على النسب الصحيحة */
+}
+
+
+.btn-gradient {
+  background: linear-gradient(90deg, #3865f8, #0193ff);
+  background-size: 200% 200%;
+  background-position: left center;
+  color: white;
+  transition: background-position 0.5s ease, transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+  transform: scale(1.05);
+}
+
+
+.brand-name {
+  color: #0193ff; /* أو أي لون أزرق مميز خاص بشركتك */
+  font-weight: bold;
+}
+
+
+.card-body i {
+  color: #ffffff; /* اللون الأزرق للمؤثرات */
+  transition: transform 0.3s ease;
+}
+
+.card-body i:hover {
+  transform: scale(1.2); /* تأثير تكبير الأيقونة عند التمرير */
+}
+
+
