@@ -1,3 +1,6 @@
+/*============================*
+  ✅ GLOBAL STYLES
+*============================*/
 body {
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(8, 0, 153, 1) 25%, rgb(1, 57, 189) 50%, rgba(8, 0, 153, 1) 75%, rgba(0, 0, 0, 1) 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,27 +20,126 @@ body::before {
   opacity: 0.2;
   z-index: 0;
 }
+
+/*============================*
+  ✅ NAVBAR
+*============================*/
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 70px;
   background: rgba(0, 0, 0, 0.13);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 1000;
-  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 .nav-link {
   color: white;
   transition: 0.3s;
 }
+
 .nav-link:hover {
   color: #3865f8;
 }
+
+.navbar-nav {
+  z-index: 2;
+}
+
+/* Close Menu Button */
+.close-menu-btn {
+  background: transparent;
+  border: none;
+  z-index: 1001;
+}
+.close-menu-btn:hover {
+  opacity: 0.7;
+}
+
+/* Responsive Fullscreen Menu */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  .navbar-collapse.show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 999;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+    animation: fadeInBlur 0.3s ease-in-out forwards;
+  }
+  .navbar-collapse.show .nav-link {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .navbar-collapse.show ~ .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Collapse Animation Fix */
+.navbar-collapse.collapsing {
+  height: auto !important;
+  transition: none !important;
+  display: none;
+}
+
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+    backdrop-filter: blur(0px);
+    background-color: rgba(0,0,0,0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.596);
+  }
+}
+
+/* .menu-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 0;
+  border-radius: 0;
+} */
+
+/*============================*
+  ✅ GENERAL LAYOUT
+*============================*/
 section {
   position: relative;
   z-index: 1;
@@ -49,28 +151,89 @@ section {
   align-items: center;
   text-align: center;
 }
+
 footer {
   background-color: rgba(0,0,0,0.5);
   padding: 40px 20px;
   text-align: center;
 }
+
 .social-icons a {
   margin: 0 10px;
   color: white;
   text-decoration: none;
 }
+
 .social-icons a:hover {
   color: #386bf8;
 }
-.card-body{
-  color:white;
+
+/*============================*
+  ✅ COMPONENTS
+*============================*/
+.card-body {
+  color: white;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 1000;
 }
 
+.card-body i {
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+.card-body i:hover {
+  transform: scale(1.2);
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #3865f8, #0193ff);
+  background-size: 200% 200%;
+  background-position: left center;
+  color: white;
+  transition: background-position 0.5s ease, transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+  transform: scale(1.05);
+}
+
+.brand-name {
+  color: #0193ff;
+  font-weight: bold;
+}
+
+/*============================*
+  ✅ ACCORDION
+*============================*/
+.accordion {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 15px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.accordion-body {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+/*============================*
+  ✅ TIMELINE
+*============================*/
 .timeline-wrap {
-  position:relative;
+  position: relative;
   max-width: 1200px;
   margin: auto;
   padding: 40px 0;
@@ -119,11 +282,10 @@ footer {
   border-radius: 50%;
   z-index: 1;
   border: 4px solid #0f0097;
-  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
-.timeline-item-wrap:hover::before{
+.timeline-item-wrap:hover::before {
   background-color: #003cff;
 }
 
@@ -135,6 +297,7 @@ footer {
   left: -10px;
 }
 
+/* Responsive Timeline */
 @media screen and (max-width: 768px) {
   .timeline-item-wrap {
     width: 100%;
@@ -152,6 +315,7 @@ footer {
   }
 }
 
+/* Testimonials */
 .testimonials-wrap {
   display: flex;
   justify-content: space-between;
@@ -210,16 +374,7 @@ footer {
   .testimonials-wrap {
     justify-content: center;
   }
-}
 
-.divider {
-  width: 60px;
-  height: 4px;
-  background-color: #3865f8;
-  border-radius: 2px;
-}
-
-@media screen and (max-width: 768px) {
   .about-fluid .display-4 {
     font-size: 2.2rem;
   }
@@ -229,63 +384,9 @@ footer {
   }
 }
 
-
-
-.navbar-logo {
-  height: 60px; /* تحديد ارتفاع ثابت للصورة */
-  width: auto;  /* العرض يتم ضبطه تلقائيا لتناسب الارتفاع */
-  object-fit: contain; /* لضمان أن الصورة تحافظ على النسب الصحيحة */
-}
-
-
-.btn-gradient {
-  background: linear-gradient(90deg, #3865f8, #0193ff);
-  background-size: 200% 200%;
-  background-position: left center;
-  color: white;
-  transition: background-position 0.5s ease, transform 0.3s ease;
-}
-
-.btn-gradient:hover {
-  background-position: right center;
-  transform: scale(1.05);
-}
-
-
-.brand-name {
-  color: #0193ff; /* أو أي لون أزرق مميز خاص بشركتك */
-  font-weight: bold;
-}
-
-
-.card-body i {
-  color: #ffffff; /* اللون الأزرق للمؤثرات */
-  transition: transform 0.3s ease;
-}
-
-.card-body i:hover {
-  transform: scale(1.2); /* تأثير تكبير الأيقونة عند التمرير */
-}
-
-
-.accordion{
-  background-color: rgba(255, 255, 255, 0.1); /* لون خفيف شفاف */
-  backdrop-filter: blur(5px); /* هنا السحر الحقيقي */
-  -webkit-backdrop-filter: blur(5px); /* دعم لـ Safari */
-  padding: 2rem;
-  border-radius: 15px;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.accordion-body{
-  background-color: rgba(255, 255, 255, 0.1); /* لون خفيف شفاف */
-  backdrop-filter: blur(5px); /* هنا السحر الحقيقي */
-  -webkit-backdrop-filter: blur(5px); /* دعم لـ Safari */
-  padding: 2rem;
-  border-radius: 5px;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.accordion-button::after {
-  filter: brightness(0) invert(1); /* يحوّله للون أبيض */
+.divider {
+  width: 60px;
+  height: 4px;
+  background-color: #3865f8;
+  border-radius: 2px;
 }
